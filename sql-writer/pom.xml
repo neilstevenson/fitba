@@ -1,0 +1,96 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>neil.demo.fitba</groupId>
+		<artifactId>pom</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>sql-writer</artifactId>
+
+	<build>
+		<finalName>${project.artifactId}</finalName>
+
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>sql-maven-plugin</artifactId>
+				<version>${sql-maven-plugin.version}</version>
+				<configuration>
+					<autocommit>true</autocommit>
+					<driver>com.mysql.cj.jdbc.Driver</driver>
+					<username>${database.username}</username>
+					<password>${database.password}</password>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>mysql</groupId>
+						<artifactId>mysql-connector-java</artifactId>
+						<version>${mysql.version}</version>
+					</dependency>
+				</dependencies>
+				<executions>
+					<execution>
+						<id>1: drop database ${database.name}</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>execute</goal>
+						</goals>
+						<configuration>
+							<onError>continue</onError>
+							<url>jdbc:mysql://localhost:3306/mysql?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;connectTimeout=30&amp;socketTimeout=30&amp;serverTimezone=UTC</url>
+							<sqlCommand>drop database if exists ${database.name}</sqlCommand>
+						</configuration>
+					</execution>
+					<execution>
+						<id>2: create database ${database.name}</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>execute</goal>
+						</goals>
+						<configuration>
+							<url>jdbc:mysql://localhost:3306/mysql?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;connectTimeout=30&amp;socketTimeout=30&amp;serverTimezone=UTC</url>
+							<sqlCommand>create database ${database.name}</sqlCommand>
+						</configuration>
+					</execution>
+					<execution>
+						<id>3: DDL</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>execute</goal>
+						</goals>
+						<configuration>
+							<fileset>
+								<basedir>${project.build.directory}/classes</basedir>
+								<includes>
+									<includes>**/*.ddl</includes>
+								</includes>
+							</fileset>
+							<url>jdbc:mysql://localhost:3306/${database.name}?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;connectTimeout=30&amp;socketTimeout=30&amp;serverTimezone=UTC</url>
+						</configuration>
+					</execution>
+					<execution>
+						<id>4: DML</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>execute</goal>
+						</goals>
+						<configuration>
+							<fileset>
+								<basedir>${project.build.directory}/classes</basedir>
+								<includes>
+									<includes>**/*.dml</includes>
+								</includes>
+							</fileset>
+							<url>jdbc:mysql://localhost:3306/${database.name}?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;connectTimeout=30&amp;socketTimeout=30&amp;serverTimezone=UTC</url>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
