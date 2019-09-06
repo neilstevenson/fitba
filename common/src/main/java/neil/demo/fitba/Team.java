@@ -20,7 +20,7 @@ import lombok.extern.slf4j.Slf4j;
 @Entity
 @Table(name="team")
 @Slf4j
-public class Team implements Comparable<Team>, IdentifiedDataSerializable, Serializable {
+public class Team implements Cloneable, Comparable<Team>, IdentifiedDataSerializable, Serializable {
 
 	@Column                     	private String league;
 	@Column							private int pos;
@@ -43,7 +43,7 @@ public class Team implements Comparable<Team>, IdentifiedDataSerializable, Seria
     
 	@Override
 	public void writeData(ObjectDataOutput out) throws IOException {
-		log.info("Serialize: {}", this);
+		log.trace("Serialize: {}", this);
 		out.writeUTF(this.league);
 		out.writeInt(this.pos);
 		out.writeUTF(this.name);
@@ -70,7 +70,7 @@ public class Team implements Comparable<Team>, IdentifiedDataSerializable, Seria
 		this.ga = in.readInt();
 		this.gd = in.readInt();
 		this.pts = in.readInt();
-		log.info("De-Serialize: {}", this);
+		log.trace("De-Serialize: {}", this);
 	}
 
 	@Override
@@ -81,6 +81,15 @@ public class Team implements Comparable<Team>, IdentifiedDataSerializable, Seria
 	@Override
 	public int getId() {
 		return MyConstants.CLASS_ID_TEAM;
+	}
+	
+	@Override
+	public Team clone() {
+		try {
+			return (Team) super.clone();
+		} catch (CloneNotSupportedException cnse) {
+			return null;
+		}
 	}
 
 }

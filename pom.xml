@@ -22,22 +22,31 @@
 		<database.password>root</database.password>
 		<database.username>root</database.username>
 
+		<hazelcast.version>3.12.1</hazelcast.version>
+		<hazelcast-wm.version>3.8.3</hazelcast-wm.version>
 		<hazelcast-jet.version>3.1</hazelcast-jet.version>
+		
+		<!-- TODO: Check if ML runs on Java 11 -->
 		<java.version>1.8</java.version>
 		
 		<!-- 
 		<hbc-twitter4j.version>2.2.0</hbc-twitter4j.version>
 		 -->
 		<sql-maven-plugin.version>1.5</sql-maven-plugin.version>
+		<spring-shell.version>2.0.1.RELEASE</spring-shell.version>
 	</properties>
 
 	<modules>
 		<module>sql-writer</module>
 
 		<module>common</module>
-		<module>domain</module>
 		<module>repository</module>
 		<module>sql-reader</module>
+		<module>grid-server</module>
+		<module>cli-client</module>
+		<module>web-client</module>
+		<!--
+		-->
 	</modules>
 
 	<dependencies>
@@ -50,6 +59,27 @@
 			<artifactId>jackson-dataformat-yaml</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>com.hazelcast</groupId>
+			<artifactId>hazelcast-spring</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>com.hazelcast</groupId>
+					<artifactId>hazelcast</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.hazelcast</groupId>
+			<artifactId>hazelcast-wm</artifactId>
+			<version>${hazelcast-wm.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.hazelcast</groupId>
+					<artifactId>hazelcast</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
 		<dependency>
 			<groupId>com.hazelcast.jet</groupId>
 			<artifactId>hazelcast-jet</artifactId>
@@ -109,6 +139,12 @@
 				<artifactId>hbc-core</artifactId>
 				<version>${hbc-twitter4j.version}</version>
 			</dependency>
+			
+			<dependency>
+            	<groupId>org.springframework.shell</groupId>
+                <artifactId>spring-shell-starter</artifactId>
+                <version>${spring-shell.version}</version>
+            </dependency>
 		</dependencies>
 	</dependencyManagement>
 

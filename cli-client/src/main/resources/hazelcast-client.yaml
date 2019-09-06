@@ -1,0 +1,12 @@
+hazelcast-client:
+  group:
+    name: 'fitba'
+  instance-name: 'cli-client'
+  network:
+    cluster-members:
+      - 127.0.0.1
+      - 127.0.0.2
+  serialization:
+    data-serializable-factories:
+      - factory-id: 1000
+        class-name: neil.demo.fitba.MyDataSerializableFactory
