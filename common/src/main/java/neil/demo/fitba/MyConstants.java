@@ -13,6 +13,7 @@ public class MyConstants {
 
     // Map names
     static final String FIBONACCI = "Fibonacci";
+    static final String JSESSIONID = "jsessionid"; // Lowercase when in URLs
     static final String CHAMPIONSHIP_LEAGUE = "Championship";
     static final String PREMIER_LEAGUE = "Premier";
 
@@ -22,7 +23,7 @@ public class MyConstants {
     			);
     static final List<String> OTHER_MAPS =
     		new ArrayList<>(
-    				List.of(FIBONACCI)
+    				List.of(FIBONACCI, JSESSIONID)
     			);
     static final List<String> MAP_NAMES = 
     		Stream.concat(LEAGUES.stream(), OTHER_MAPS.stream())

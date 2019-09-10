@@ -17,6 +17,17 @@ hazelcast:
           - 127.0.0.1:5701
           - 127.0.0.1:5702
           - 127.0.0.1:5703
+  map:
+    jessionid:
+      backup-count: 1
+    Premier:
+      backup-count: 0
+    Championship:
+      backup-count: 0
+      event-journal:
+        enabled: true
+        capacity: 27100000
+        time-to-live-seconds: 0
   serialization:
     data-serializable-factories:
       - factory-id: 1000

@@ -1,10 +1,11 @@
 hazelcast-client:
   group:
     name: 'fitba'
-  instance-name: 'cli'
+  instance-name: 'socker'
   properties:
     hazelcast.client.statistics.enabled: true
   network:
+    # For running on localhost, overridden when runnning in Docker, see ApplicationConfig.java
     cluster-members:
       - 127.0.0.1:5701
       - 127.0.0.1:5702

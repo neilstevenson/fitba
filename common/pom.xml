@@ -11,6 +11,15 @@
 
 	<artifactId>common</artifactId>
 
+	<dependencies>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>sql-writer</artifactId>
+			<version>${project.version}</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
 	<build>
 		<resources>
 			<resource>
