@@ -8,3 +8,4 @@ spring:
       hibernate.format_sql: true
       # Default is fault, turn on for debugging 
       #hibernate.show_sql: true
+  main.banner-mode: 'off'

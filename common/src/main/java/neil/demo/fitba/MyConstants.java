@@ -29,5 +29,9 @@ public class MyConstants {
     		Stream.concat(LEAGUES.stream(), OTHER_MAPS.stream())
     			.collect(Collectors.toList());
 
+    // Attribute keys to store in a JSessionID web session
+    static final String ATTRIBUTE_MAIN_MENU_VISITS = "Main Menu";
+    static final String ATTRIBUTE_DEBUG_PAGE_VISITS = "Debug Page";
+    static final String ATTRIBUTE_CLIENT_ADDRESS = "Client Address";
 }
 

@@ -56,7 +56,7 @@ public class TeamMapStore implements MapStore<String, Team> {
 
 	@Override
 	public Iterable<String> loadAllKeys() {
-		log.debug("'{}'::loadAllKeys()");
+		log.debug("'{}'::loadAllKeys()", this.league);
 
 		try {
 			return this.teamRepository.findLeagueTeams(this.league);
