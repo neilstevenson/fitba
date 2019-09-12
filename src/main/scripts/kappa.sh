@@ -7,7 +7,7 @@ ARGS="-Dhazelcast.client.config=src/main/scripts/hazelcast-client.yaml"
 BASEDIR=`dirname $0`
 cd $BASEDIR/../../..
 
-MODULE=cat-scan
+MODULE=kappa
 
 CMD="java $ARGS com.hazelcast.jet.server.JetCommandLine -v submit ${MODULE}/target/${MODULE}-jar-with-dependencies.jar"
 echo $CMD

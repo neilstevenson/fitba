@@ -2,5 +2,6 @@
 .factorypath
 .project
 .settings
+likevgg_cifar10
 target
 *.log

@@ -8,30 +8,31 @@ import java.util.stream.Stream;
 public class MyConstants {
 
 	// Used in GO also, change in both or neither
-    static final int CLASS_ID_MYDATASERIALIZABLEFACTORY = 1000;
-    static final int CLASS_ID_TEAM = 1;
+	public static final int CLASS_ID_MYDATASERIALIZABLEFACTORY = 1000;
+	public static final int CLASS_ID_TEAM = 1;
 
     // Map names
-    static final String FIBONACCI = "Fibonacci";
-    static final String JSESSIONID = "jsessionid"; // Lowercase when in URLs
-    static final String CHAMPIONSHIP_LEAGUE = "Championship";
-    static final String PREMIER_LEAGUE = "Premier";
+    public static final String ACCOUNT = "Account";
+    public static final String FIBONACCI = "Fibonacci";
+    public static final String JSESSIONID = "JSessionID";
+    public static final String CHAMPIONSHIP_LEAGUE = "Championship";
+    public static final String PREMIER_LEAGUE = "Premier";
 
-    static final List<String> LEAGUES =
+    public static final List<String> LEAGUES =
     		new ArrayList<>(
     				List.of(CHAMPIONSHIP_LEAGUE, PREMIER_LEAGUE)
     			);
-    static final List<String> OTHER_MAPS =
+    public static final List<String> OTHER_MAPS =
     		new ArrayList<>(
-    				List.of(FIBONACCI, JSESSIONID)
+    				List.of(ACCOUNT, FIBONACCI, JSESSIONID)
     			);
-    static final List<String> MAP_NAMES = 
+    public static final List<String> MAP_NAMES = 
     		Stream.concat(LEAGUES.stream(), OTHER_MAPS.stream())
     			.collect(Collectors.toList());
 
     // Attribute keys to store in a JSessionID web session
-    static final String ATTRIBUTE_MAIN_MENU_VISITS = "Main Menu";
-    static final String ATTRIBUTE_DEBUG_PAGE_VISITS = "Debug Page";
-    static final String ATTRIBUTE_CLIENT_ADDRESS = "Client Address";
+    public static final String ATTRIBUTE_MAIN_MENU_VISITS = "Main Menu";
+    public static final String ATTRIBUTE_DEBUG_PAGE_VISITS = "Debug Page";
+    public static final String ATTRIBUTE_CLIENT_ADDRESS = "Client Address";
 }
 

@@ -41,6 +41,7 @@ public class ApplicationConfig {
 	@Bean
 	public JetInstance jetInstance(Config config) {
 		JetConfig jetConfig = new JetConfig().setHazelcastConfig(config);
+		jetConfig.getInstanceConfig().setCooperativeThreadCount(1);
 		return Jet.newJetInstance(jetConfig);
 	}
 
