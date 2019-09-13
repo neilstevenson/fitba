@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.2.0.M5</version>
+		<version>2.2.0.M6</version>
 	</parent>
 
 	<groupId>neil.demo.fitba</groupId>
@@ -15,38 +15,40 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<!-- For Twitter search -->
-		<hashtag.list>AstonVilla,West Ham</hashtag.list>
-
 		<database.name>fitba</database.name>
 		<database.password>root</database.password>
 		<database.username>root</database.username>
 
+		<!-- Versions -->
+		<boofcv.version>0.33.1</boofcv.version>
+		<!-- dockerfile-maven-plugin doesn't work with Java 12 -->
+		<dockerfile-maven-plugin.version>1.4.12</dockerfile-maven-plugin.version>
 		<hazelcast.version>3.12.1</hazelcast.version>
 		<hazelcast-wm.version>3.8.3</hazelcast-wm.version>
 		<hazelcast-jet.version>3.1</hazelcast-jet.version>
-		
-		<!-- TODO: Check if ML runs on Java 11 -->
-		<java.version>1.8</java.version>
-		
-		<!-- 
-		<hbc-twitter4j.version>2.2.0</hbc-twitter4j.version>
-		 -->
+		<java.version>11</java.version>
+		<jquery.version>3.4.1</jquery.version>
+		<leaflet.version>1.5.1</leaflet.version>
+		<sockjs-client.version>1.1.2</sockjs-client.version>
 		<sql-maven-plugin.version>1.5</sql-maven-plugin.version>
 		<spring-shell.version>2.0.1.RELEASE</spring-shell.version>
+		<stomp-websocket.version>2.3.3-1</stomp-websocket.version>
 	</properties>
 
 	<modules>
+		<!-- Unrelated to Hazelcast -->
+		<module>kafka-writer</module>
+		<module>sql-reader</module>
 		<module>sql-writer</module>
 
+		<!-- Hazelcast & integrations -->
 		<module>common</module>
 		<module>repository</module>
-		<module>sql-reader</module>
 		<module>grid-server</module>
 		<module>cli-client</module>
-		<module>web-client</module>
-		<!--
-		-->
+		<module>socker-client</module>
+		<module>cat-scan</module>
+		<module>kappa</module>
 	</modules>
 
 	<dependencies>
@@ -92,6 +94,17 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.boofcv</groupId>
+			<artifactId>boofcv-core</artifactId>
+			<version>${boofcv.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.boofcv</groupId>
+			<artifactId>boofcv-WebcamCapture</artifactId>
+			<version>${boofcv.version}</version>
+		</dependency>
+
+		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 		</dependency>
@@ -124,6 +137,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-log4j2</artifactId>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.kafka</groupId>
+			<artifactId>spring-kafka</artifactId>
+		</dependency>
 	</dependencies>
 
 	<dependencyManagement>
@@ -139,20 +157,41 @@
 				<artifactId>hbc-core</artifactId>
 				<version>${hbc-twitter4j.version}</version>
 			</dependency>
-			
+
 			<dependency>
-            	<groupId>org.springframework.shell</groupId>
-                <artifactId>spring-shell-starter</artifactId>
-                <version>${spring-shell.version}</version>
-            </dependency>
+				<groupId>org.springframework.shell</groupId>
+				<artifactId>spring-shell-starter</artifactId>
+				<version>${spring-shell.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.webjars</groupId>
+				<artifactId>jquery</artifactId>
+				<version>${jquery.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.webjars</groupId>
+				<artifactId>leaflet</artifactId>
+				<version>${leaflet.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.webjars</groupId>
+				<artifactId>sockjs-client</artifactId>
+				<version>${sockjs-client.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.webjars</groupId>
+				<artifactId>stomp-websocket</artifactId>
+				<version>${stomp-websocket.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
-        <build>
-                <finalName>${project.artifactId}</finalName>
-        </build>
+	<build>
+		<finalName>${project.artifactId}</finalName>
+	</build>
 
-	<!-- For 2.2.0.M5 -->
+	<!-- For 2.2.0.M6 -->
 	<repositories>
 		<repository>
 			<id>spring-milestones</id>
