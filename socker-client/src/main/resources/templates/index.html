@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments :: head" />
+
+<body>
+	<div th:include="fragments :: header">?</div>
+
+	<div class="mainpane">
+
+		<!--/* Index page */-->
+
+		<h1>Menu</h1>
+
+		<hr />
+		<h2 th:text="'Session Id : ' + ${#httpSession.id}"
+			style="color: var(- -hazelcast-blue-light);">?</h2>
+
+		<hr />
+		<h2>Account</h2>
+		<form name="select" th:action="@{/account/index}">
+			<input class="mySubmit" type="submit" value="Accounts" />
+		</form>
+
+		<hr />
+		<h2>Championship</h2>
+		<form name="select" th:action="@{/team/index}">
+			<input class="mySubmit" type="submit" value="Championship" />
+ 			<input type="hidden" name="j_league" value="Championship">
+		</form>
+
+		<hr />
+		<h2>Debug</h2>
+		<form name="select" th:action="@{/debug/index}">
+			<input class="mySubmit" type="submit" value="Debug" />
+		</form>
+
+		<hr />
+		<h2>Fibonacci</h2>
+		<form name="select" th:action="@{/fibonacci/index}">
+			<input class="mySubmit" type="submit" value="Fibonacci" />
+		</form>
+
+		<hr />
+		<h2>Premier League</h2>
+		<form name="select" th:action="@{/team/index}">
+			<input class="mySubmit" type="submit" value="Premier" />
+ 			<input type="hidden" name="j_league" value="Premier">
+		</form>
+
+	</div>
+
+	<div th:include="fragments :: footer">?</div>
+</body>
+
+</html>

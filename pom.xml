@@ -26,6 +26,7 @@
 		<hazelcast.version>3.12.1</hazelcast.version>
 		<hazelcast-wm.version>3.8.3</hazelcast-wm.version>
 		<hazelcast-jet.version>3.1</hazelcast-jet.version>
+		<hbc-twitter4j.version>2.2.0</hbc-twitter4j.version>
 		<java.version>11</java.version>
 		<jquery.version>3.4.1</jquery.version>
 		<leaflet.version>1.5.1</leaflet.version>
@@ -48,6 +49,7 @@
 		<module>cli-client</module>
 		<module>socker-client</module>
 		<module>cat-scan</module>
+		<module>hosebird</module>
 		<module>kappa</module>
 	</modules>
 

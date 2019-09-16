@@ -34,11 +34,13 @@ public class AccountMergeEntryProcessor extends AbstractEntryProcessor<String, H
 
 				BigDecimal transactionAmount;
 				BigDecimal newBalance;
+				String prefix="";
 				boolean isDebit = incomingJsonObject.has("debit");
 				
 				if (isDebit) {
 					transactionAmount = new BigDecimal(incomingJsonObject.getString("debit"));
 					newBalance = oldBalance.subtract(transactionAmount);
+					prefix = "-";
 				} else {
 					transactionAmount = new BigDecimal(incomingJsonObject.getString("credit"));
 					newBalance = oldBalance.add(transactionAmount);
@@ -50,7 +52,7 @@ public class AccountMergeEntryProcessor extends AbstractEntryProcessor<String, H
 				String description = incomingJsonObject.getString("description");
 				String timestamp = incomingJsonObject.getString("timestamp");
 
-				String txn = "{ \"amount\" : \"" + transactionAmount + "\","
+				String txn = "{ \"amount\" : \"" + prefix + transactionAmount + "\","
 						+ " \"description\" : \"" + description + "\","
 						+ " \"timestamp\" : \"" + timestamp + "\" }";
 				

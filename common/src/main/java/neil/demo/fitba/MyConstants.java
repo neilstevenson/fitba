@@ -17,6 +17,7 @@ public class MyConstants {
     public static final String JSESSIONID = "JSessionID";
     public static final String CHAMPIONSHIP_LEAGUE = "Championship";
     public static final String PREMIER_LEAGUE = "Premier";
+    public static final String SENTIMENT = "Sentiment";
 
     public static final List<String> LEAGUES =
     		new ArrayList<>(
@@ -24,7 +25,7 @@ public class MyConstants {
     			);
     public static final List<String> OTHER_MAPS =
     		new ArrayList<>(
-    				List.of(ACCOUNT, FIBONACCI, JSESSIONID)
+    				List.of(ACCOUNT, FIBONACCI, JSESSIONID, SENTIMENT)
     			);
     public static final List<String> MAP_NAMES = 
     		Stream.concat(LEAGUES.stream(), OTHER_MAPS.stream())

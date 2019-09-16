@@ -40,6 +40,7 @@
 			</exclusions>
 		</dependency>
 
+		<!--
 		<dependency>
 			<groupId>org.webjars</groupId>
 			<artifactId>jquery</artifactId>
@@ -60,6 +61,7 @@
 			<groupId>org.webjars</groupId>
 			<artifactId>webjars-locator-core</artifactId>
 		</dependency>
+		-->
 	</dependencies>
 
 	<build>

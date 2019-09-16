@@ -1,5 +1,7 @@
 package neil.demo.fitba;
 
+import java.util.Currency;
+import java.util.Locale;
 import java.util.Properties;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,8 @@ import org.springframework.context.annotation.Configuration;
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.web.WebFilter;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * <p>
  * Additional configuration so that this JVM is both a Hazelcast client and
@@ -17,6 +21,7 @@ import com.hazelcast.web.WebFilter;
  * </p>
  */
 @Configuration
+@Slf4j
 public class ApplicationWebConfig {
 
 	@Autowired
@@ -32,5 +37,24 @@ public class ApplicationWebConfig {
 		properties.put("use-client", "true");
 
 		return new WebFilter(properties);
+	}
+
+	/**
+	 * <p>
+	 * For displaying on the account pages. Country code may be empty string on
+	 * containers.
+	 * </p>
+	 */
+	@Bean(name="currencySymbol")
+	public String currencySymbol() {
+		try {
+			Locale locale = Locale.getDefault();
+			if (locale.getCountry() != null && locale.getCountry().length() > 0) {
+				return Currency.getInstance(locale).getSymbol();
+			}
+		} catch (Exception e) {
+			log.error("currencySymbol", e);
+		}
+		return Currency.getInstance("GBP").getSymbol();
 	}
 }

@@ -35,10 +35,11 @@ public class Team implements Cloneable, Comparable<Team>, IdentifiedDataSerializ
 	@Column							private int pts;
 	
 	
-	// Sort on team name
+	// Sort on team name ? Or on position in the league ?
     @Override
     public int compareTo(Team that) {
-    	return this.name.compareTo(that.getName());
+    	//return this.name.compareTo(that.getName());
+    	return (this.pos - that.getPos());
     }
     
 	@Override
