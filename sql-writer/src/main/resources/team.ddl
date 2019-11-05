@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS team;
 
 CREATE TABLE team (
- league                                 VARCHAR(12) NOT NULL,
+ league                                 VARCHAR(18) NOT NULL,
  pos                                    INT NOT NULL,
  name                                   VARCHAR(60) NOT NULL,
  pld                                    INT NOT NULL, 
