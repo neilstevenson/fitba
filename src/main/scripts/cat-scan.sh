@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export CLASSPATH=~/.m2/repository/com/hazelcast/jet/hazelcast-jet/3.1/hazelcast-jet-3.1.jar
+export CLASSPATH=~/.m2/repository/com/hazelcast/jet/hazelcast-jet/3.2/hazelcast-jet-3.2.jar
 
 ARGS="-Dhazelcast.client.config=src/main/scripts/hazelcast-client.yaml"
 

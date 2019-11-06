@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk11
+FROM adoptopenjdk/openjdk11:jre-11.0.5_10-alpine
 
 # Copy from Maven build output
 ARG JAR_FILE

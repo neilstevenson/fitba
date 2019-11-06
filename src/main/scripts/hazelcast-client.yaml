@@ -1,7 +1,7 @@
 hazelcast-client:
   group:
     name: 'fitba'
-  instance-name: 'JetCommandLine'
+  instance-name: 'Jet Command Line'
   properties:
     hazelcast.client.statistics.enabled: true
   network:

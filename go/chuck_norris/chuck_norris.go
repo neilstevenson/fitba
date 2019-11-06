@@ -27,11 +27,11 @@ func main() {
                return
            }
 
-           championshipMap, _ := hazelcastClient.GetMap("Championship")
+           bundesligaMap, _ := hazelcastClient.GetMap("Bundesliga")
 		
            var wg *sync.WaitGroup = new(sync.WaitGroup)
            entryListener := &EntryListener{Wg: wg}
-           registrationId, _ := championshipMap.AddEntryListener(entryListener, true)
+           registrationId, _ := bundesligaMap.AddEntryListener(entryListener, true)
 
            fmt.Println(registrationId)
 	   fmt.Printf("======================================\n")   
@@ -41,7 +41,7 @@ func main() {
 		
            time.Sleep(30 * time.Minute)
                 
-           championshipMap.RemoveEntryListener(registrationId)
+           bundesligaMap.RemoveEntryListener(registrationId)
 
            fmt.Printf("======================================\n")  
            hazelcastClient.Shutdown()  

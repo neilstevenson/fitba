@@ -13,19 +13,20 @@ public class MyConstants {
 
     // Map names
     public static final String ACCOUNT = "Account";
+    public static final String BUNDESLIGA = "Bundesliga";
     public static final String FIBONACCI = "Fibonacci";
     public static final String JSESSIONID = "JSessionID";
-    public static final String CHAMPIONSHIP_LEAGUE = "Championship";
-    public static final String PREMIER_LEAGUE = "Premier";
     public static final String SENTIMENT = "Sentiment";
+    public static final String TWITTER = "Twitter";
+    public static final String ZWEITE_BUNDESLIGA = "Zweite Bundesliga";
 
     public static final List<String> LEAGUES =
     		new ArrayList<>(
-    				List.of(CHAMPIONSHIP_LEAGUE, PREMIER_LEAGUE)
+				List.of(BUNDESLIGA, ZWEITE_BUNDESLIGA)
     			);
     public static final List<String> OTHER_MAPS =
     		new ArrayList<>(
-    				List.of(ACCOUNT, FIBONACCI, JSESSIONID, SENTIMENT)
+				List.of(ACCOUNT, FIBONACCI, JSESSIONID, SENTIMENT, TWITTER)
     			);
     public static final List<String> MAP_NAMES = 
     		Stream.concat(LEAGUES.stream(), OTHER_MAPS.stream())

@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.2.0.M6</version>
+		<version>2.2.0.RELEASE</version>
 	</parent>
 
 	<groupId>neil.demo.fitba</groupId>
@@ -20,12 +20,12 @@
 		<database.username>root</database.username>
 
 		<!-- Versions -->
-		<boofcv.version>0.33.1</boofcv.version>
+		<boofcv.version>0.34</boofcv.version>
 		<!-- dockerfile-maven-plugin doesn't work with Java 12 -->
 		<dockerfile-maven-plugin.version>1.4.12</dockerfile-maven-plugin.version>
 		<hazelcast.version>3.12.1</hazelcast.version>
 		<hazelcast-wm.version>3.8.3</hazelcast-wm.version>
-		<hazelcast-jet.version>3.1</hazelcast-jet.version>
+		<hazelcast-jet.version>3.2</hazelcast-jet.version>
 		<hbc-twitter4j.version>2.2.0</hbc-twitter4j.version>
 		<java.version>11</java.version>
 		<jquery.version>3.4.1</jquery.version>
@@ -49,8 +49,10 @@
 		<module>cli-client</module>
 		<module>socker-client</module>
 		<module>cat-scan</module>
+		<!--
 		<module>hosebird</module>
-		<module>kappa</module>
+		 -->
+		<module>zappa</module>
 	</modules>
 
 	<dependencies>
@@ -193,19 +195,4 @@
 		<finalName>${project.artifactId}</finalName>
 	</build>
 
-	<!-- For 2.2.0.M6 -->
-	<repositories>
-		<repository>
-			<id>spring-milestones</id>
-			<name>Spring Milestones</name>
-			<url>https://repo.spring.io/milestone</url>
-		</repository>
-	</repositories>
-	<pluginRepositories>
-		<pluginRepository>
-			<id>spring-milestones</id>
-			<name>Spring Milestones</name>
-			<url>https://repo.spring.io/milestone</url>
-		</pluginRepository>
-	</pluginRepositories>
 </project>

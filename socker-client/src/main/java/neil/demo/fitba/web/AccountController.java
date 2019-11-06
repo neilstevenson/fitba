@@ -65,6 +65,7 @@ public class AccountController {
 
         List<String> columns = new ArrayList<>();
         columns.add("Account");
+        columns.add("Name");
         columns.add("Balance");
         columns.add("Transaction Count");
         modelAndView.addObject("columns", columns);
@@ -87,6 +88,7 @@ public class AccountController {
         	
             	List<String> datum = new ArrayList<>();
         		datum.add(key);
+			datum.add(jsonObject.getString("name"));
         		datum.add("" + this.currencySymbol + 
         			TWO_DP.format(Double.valueOf(jsonObject.getString("balance"))));
         		datum.add("" + jsonObject.getJSONArray("transactions").length());

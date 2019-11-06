@@ -47,8 +47,10 @@ public class AccountFromKafka {
 				JSONObject jsonObject = new JSONObject(entry.getValue().toString());
 
 				String balance = jsonObject.getString("balance");
+				String name = jsonObject.getString("name");
 				
 				String valueStr = "{ \"account\" : \"" + entry.getKey() + "\","
+						+ " \"name\" : \"" + name + "\","
 						+ " \"balance\" : \"" + balance + "\","
 						+ " \"transactions\" : [] }";
 				

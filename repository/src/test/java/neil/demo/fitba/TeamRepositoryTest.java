@@ -40,7 +40,7 @@ public class TeamRepositoryTest {
         this.teamRepository.findAll()
         .forEach(record -> {
             assertThat("Record " + count.get(), record, notNullValue());
-            log.info(record.toString());
+            log.info("find_all():: {}", record.toString());
             count.incrementAndGet();
         });
         
@@ -48,16 +48,16 @@ public class TeamRepositoryTest {
 	}  
 
 	@Test
-	public void find_all_championship_teams() {
+	public void find_all_zweite_bundesliga_teams() {
 		int count = 0;
 		String previousTeam = "";
 		
-		Iterator<String> iterator = this.teamRepository.findLeagueTeams(MyConstants.CHAMPIONSHIP_LEAGUE).iterator();
+		Iterator<String> iterator = this.teamRepository.findLeagueTeams(MyConstants.ZWEITE_BUNDESLIGA).iterator();
 		while (iterator.hasNext()) {
 			String currentTeam = iterator.next();
 			assertThat("Row " + count, currentTeam, notNullValue());
-			assertThat("Asecnding", currentTeam, greaterThan(previousTeam));
-            log.info(currentTeam);
+			assertThat("Ascending", currentTeam, greaterThan(previousTeam));
+            log.info("find_all_zweite_bundesliga_teams():: {}", currentTeam);
 			count++;
 			previousTeam = currentTeam;
 		}
@@ -66,8 +66,8 @@ public class TeamRepositoryTest {
 	}
 	
 	@Test
-	public void find_premiership_leader() {
-		Collection<?> results = this.teamRepository.findTeamAndPoints(MyConstants.PREMIER_LEAGUE);
+	public void find_bundesliga_leader() {
+		Collection<?> results = this.teamRepository.findTeamAndPoints(MyConstants.BUNDESLIGA);
 
 		assertThat("Results not null", results, notNullValue());
 		assertThat("Results not empty", results.size(), greaterThan(0));
@@ -82,7 +82,7 @@ public class TeamRepositoryTest {
 		assertThat("Pair", tuple.length, equalTo(2));
 		assertThat("Pair, 1st", tuple[0], instanceOf(String.class));
 		assertThat("Pair, 2nd", tuple[1], instanceOf(Integer.class));
-		log.info("{},{}", tuple[0],tuple[1]);
+		log.info("find_bundesliga_leader():: {},{}", tuple[0],tuple[1]);
 	}
 	
 }

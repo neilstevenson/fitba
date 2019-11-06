@@ -6,7 +6,7 @@ import com.hazelcast.jet.server.JetBootstrap;
 
 public class Bootstrap {
 
-	// jet.sh submit cat-scan.sh.
+	// jet.sh submit cat-scan-jar-with-dependencies.jar
 	public static void main(String[] args) {
 		
         JetInstance jetInstance = JetBootstrap.getInstance();

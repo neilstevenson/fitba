@@ -15,7 +15,7 @@ func main() {
 			log.Fatal(err)
 		}
 
-                var leagues = []string{ "Premier", "Championship" }
+                var leagues = []string{ "Bundesliga", "Zweite Bundesliga" }
                 for _, league := range leagues {
                 	fmt.Printf("\n")
                 	fmt.Printf("%s\n", league)

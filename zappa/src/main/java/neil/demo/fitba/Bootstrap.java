@@ -7,7 +7,7 @@ import com.hazelcast.jet.server.JetBootstrap;
 
 public class Bootstrap {
 
-	// jet.sh submit kafka.sh.
+	// jet.sh submit zappa-jar-with-dependencies.jar
 	public static void main(String[] args) {
 		
         JetInstance jetInstance = JetBootstrap.getInstance();

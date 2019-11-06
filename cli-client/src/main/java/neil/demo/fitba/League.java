@@ -56,9 +56,9 @@ public class League {
         }
 	}
 
-	@ShellMethod(key = "CHAMPIONSHIP_BONUS", value = "Add 1 point to a team")
-	public String championshipBonus(@ShellOption(value = "team") String teamName) {
-		IMap<String, Team> leagueMap = this.hazelcastInstance.getMap(MyConstants.CHAMPIONSHIP_LEAGUE);
+	@ShellMethod(key = "BUNDESLIGA_BONUS", value = "Add 1 point to a team")
+	public String bundesligaBonus(@ShellOption(value = "team") String teamName) {
+		IMap<String, Team> leagueMap = this.hazelcastInstance.getMap(MyConstants.BUNDESLIGA);
 		if (leagueMap.isEmpty()) {
 			log.warn("Map '{}' empty, probably expiry", leagueMap.getName());
 		}
