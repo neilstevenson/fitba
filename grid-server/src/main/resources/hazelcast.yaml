@@ -19,17 +19,22 @@ hazelcast:
           - 127.0.0.1:5701
           - 127.0.0.1:5702
           - 127.0.0.1:5703
+  # 
+  # Maps without default config
   map:
     'Bundesliga':
       backup-count: 0
-    Twitter:
-      backup-count: 0
-      event-journal:
-        enabled: true
-        capacity: 27100000
-        time-to-live-seconds: 0
     'Zweite Bundesliga':
       backup-count: 0
+  #    
+  # Event log for selected maps
+  event-journal:
+    map:
+      Account:
+        enabled: true
+        capacity: 27100000
+        time-to-live-seconds: 0      
+  # 
   serialization:
     data-serializable-factories:
       - factory-id: 1000

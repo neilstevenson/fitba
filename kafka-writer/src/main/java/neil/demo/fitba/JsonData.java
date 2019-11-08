@@ -3,10 +3,12 @@ package neil.demo.fitba;
 public class JsonData {
        
        public static final String[] ACCOUNT_BASELINE = new String[] {
-               "{ \"account\" : \"N\", \"name\" : \"Neil\", \"date\" : \"2019-10-31\", "
+               "{ \"account\" : \"C\", \"name\" : \"Chris\", \"date\" : \"2019-10-31\", "
                                + "\"balance\" : \"100.00\", \"kind\" : \"baseline\" }",
                "{ \"account\" : \"J\", \"name\" : \"Jonny\", \"date\" : \"2019-10-31\", "
                                + "\"balance\" : \"100.00\", \"kind\" : \"baseline\" }",
+               "{ \"account\" : \"N\", \"name\" : \"Neil\", \"date\" : \"2019-10-31\", "
+            		   			+ "\"balance\" : \"100.00\", \"kind\" : \"baseline\" }",
        };
        
        public static final String[] ACCOUNT_TRANSACTIONS = new String[] {
@@ -16,6 +18,8 @@ public class JsonData {
                                + "     \"description\" : \"Salary\", \"kind\" : \"transaction\" }",
                "{ \"account\" : \"N\", \"timestamp\" : \"2019-11-14T13:00\", \"debit\" : \"2.00\", "
                                + "     \"description\" : \"Starbucks\", \"kind\" : \"transaction\" }",
+               "{ \"account\" : \"C\", \"timestamp\" : \"2019-11-14T13:07\", \"debit\" : \"4.00\", "
+            		   		   + "     \"description\" : \"HBF\", \"kind\" : \"transaction\" }",
                "{ \"account\" : \"N\", \"timestamp\" : \"2019-11-14T13:10\", \"debit\" : \"50.00\", "
                                + "     \"description\" : \"Alsterhaus\", \"kind\" : \"transaction\" }",
                "{ \"account\" : \"N\", \"timestamp\" : \"2019-11-14T16:16\", \"debit\" : \"2.00\", "

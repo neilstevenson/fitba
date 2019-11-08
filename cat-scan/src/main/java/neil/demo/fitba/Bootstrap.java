@@ -1,6 +1,7 @@
 package neil.demo.fitba;
 
 import com.hazelcast.jet.JetInstance;
+import com.hazelcast.jet.config.JobConfig;
 import com.hazelcast.jet.pipeline.Pipeline;
 import com.hazelcast.jet.server.JetBootstrap;
 
@@ -13,6 +14,9 @@ public class Bootstrap {
         
         Pipeline pipeline = RealTimeImageRecognition.buildPipeline();
 
-    	jetInstance.newJob(pipeline);
+        JobConfig jobConfig = new JobConfig();
+        jobConfig.setName(RealTimeImageRecognition.class.getSimpleName());
+
+        jetInstance.newJob(pipeline, jobConfig);
 	}
 }

@@ -7,15 +7,19 @@ import com.hazelcast.jet.server.JetBootstrap;
 
 public class Bootstrap {
 
-	// jet.sh submit zappa-jar-with-dependencies.jar
+	// jet.sh submit audit-jar-with-dependencies.jar
 	public static void main(String[] args) {
 		
         JetInstance jetInstance = JetBootstrap.getInstance();
+
+        String timestamp = "." + System.currentTimeMillis();
         
-        Pipeline pipeline = AccountFromKafka.buildPipeline();
+        String dirName = AccountToFile.class.getSimpleName() + timestamp;
+        
+        Pipeline pipeline = AccountToFile.buildPipeline(dirName);
         
         JobConfig jobConfig = new JobConfig();
-        jobConfig.setName(AccountFromKafka.class.getSimpleName());
+        jobConfig.setName(AccountToFile.class.getSimpleName() + timestamp);
 
     	jetInstance.newJob(pipeline, jobConfig);
 	}

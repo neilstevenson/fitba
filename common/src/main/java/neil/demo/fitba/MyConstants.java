@@ -17,7 +17,6 @@ public class MyConstants {
     public static final String FIBONACCI = "Fibonacci";
     public static final String JSESSIONID = "JSessionID";
     public static final String SENTIMENT = "Sentiment";
-    public static final String TWITTER = "Twitter";
     public static final String ZWEITE_BUNDESLIGA = "Zweite Bundesliga";
 
     public static final List<String> LEAGUES =
@@ -26,7 +25,7 @@ public class MyConstants {
     			);
     public static final List<String> OTHER_MAPS =
     		new ArrayList<>(
-				List.of(ACCOUNT, FIBONACCI, JSESSIONID, SENTIMENT, TWITTER)
+				List.of(ACCOUNT, FIBONACCI, JSESSIONID, SENTIMENT)
     			);
     public static final List<String> MAP_NAMES = 
     		Stream.concat(LEAGUES.stream(), OTHER_MAPS.stream())
