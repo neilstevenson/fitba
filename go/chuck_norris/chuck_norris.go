@@ -12,6 +12,7 @@ import (
 
 func main() {
            clientConfig := hazelcast.NewConfig()
+           clientConfig.SetClientName("Chuck Norris")
            clientConfig.GroupConfig().SetName("fitba")
            clientConfig.NetworkConfig().AddAddress("127.0.0.1:5701")
            clientConfig.NetworkConfig().AddAddress("127.0.0.1:5702")
